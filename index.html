@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>QRCode from url</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+</head>
+
+<style>
+body {
+	padding:1em; 
+	background-color:gray; 
+	float:left; 
+	display:inline-block;
+}
+
+#content {
+	border-radius:10px;
+	background-color:white;
+	text-align: center;
+	padding: 0.5em 1em 0.5em 1em;
+}
+
+#ios {
+	display: none;
+}
+
+#android {
+	width: 10em;
+	display: none;
+}
+
+#android img {
+	width:16em;
+}
+
+</style>
+
+<body>
+
+<div id="content">
+	<h1>Scan me!</h1>
+	<a id="qrcode"></a>
+	<a id="link"></a>
+
+	<a id="ios" href="http://apple.com/"><img alt="Download through 🍎" src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+	<a id="android" href="http://play.google.com/store/foo"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"/></a>
+	
+</div>
+
+<script src='http://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js'></script>
+<script>
+	new QRCode("qrcode", {
+		text: document.URL,
+		width: 256,
+		height: 256,
+		colorDark : "#000000",
+		colorLight : "#ffffff",
+		correctLevel : QRCode.CorrectLevel.H
+	})
+
+	document.getElementById("link").text = document.URL
+	document.getElementById("link").href = document.URL
+
+	if (true /*TODO:Determine if IOS*/) {
+		document.getElementById("android").style.display = "block"
+	}
+</script>
+</body>
+</html>
