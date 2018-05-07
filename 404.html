@@ -16,7 +16,7 @@ body {
 }
 
 #qrcode {
-	width: 256px;
+	width: 384px;
 	position: relative;
 	margin: auto;
 }
@@ -30,11 +30,11 @@ body {
 	background-color:white;
 	text-align: center;
 	padding: 0.5em 1em 0.5em 1em;
-	width: 300px;
+	width: 400px;
 }
 
 #ios {
-	width: 256px;
+	width: 384px;
 	display: none;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 #android img {
-	width:256px;
+	width:384px;
 }
 
 </style>
@@ -64,8 +64,8 @@ body {
 <script>
 	new QRCode("qrcode", {
 		text: document.URL,
-		width: 256,
-		height: 256,
+		width: 384,
+		height: 384,
 		colorDark : "#000000",
 		colorLight : "#ffffff",
 		correctLevel : QRCode.CorrectLevel.H
